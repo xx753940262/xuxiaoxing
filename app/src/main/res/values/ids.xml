@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--引导页-->
+    <item name="guide_container" type="id" />
+    <!--引导页-->
+</resources>

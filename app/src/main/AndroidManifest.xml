@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zmr.xuxiaoxing">
+
+    <application
+        android:name=".base.AppBaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activity.Activity_Splash"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--启动界面-->
+        <!--<activity android:name=".activity.Activity_Splash" />-->
+        <!--启动引导页-->
+        <activity android:name=".activity.Activity_Guide" />
+        <!--启动动画-->
+        <activity android:name=".activity.Activity_Animation" />
+        <!--主界面-->
+        <activity android:name=".activity.Activity_Main" />
+        <!--扫描二维码界面-->
+        <activity android:name="com.zxing.activity.CaptureActivity" />
+
+
+    </application>
+
+</manifest>
