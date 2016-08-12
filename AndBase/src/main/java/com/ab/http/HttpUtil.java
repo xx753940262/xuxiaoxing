@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
-import com.ab.util.AbBase64;
 import com.ab.util.AbLogUtil;
 import com.ab.util.AbToastUtil;
 
@@ -59,7 +58,7 @@ public class HttpUtil {
                     @Override
                     public void onSuccess(int statusCode, String content) {
 
-                        content = AbBase64.decode(content, "UTF-8");
+//                        content = AbBase64.decode(content, "UTF-8");
                         Log.e("接口返回的数据=", content);
                         try {
                             JSONObject jo = new JSONObject(content);
@@ -127,7 +126,7 @@ public class HttpUtil {
                     @Override
                     public void onSuccess(int statusCode, String content) {
 
-                        content = AbBase64.decode(content, "UTF-8");
+//                        content = AbBase64.decode(content, "UTF-8");
                         Log.e("接口返回的数据=", content);
                         try {
                             JSONObject jo = new JSONObject(content);
