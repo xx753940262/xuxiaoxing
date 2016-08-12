@@ -1,13 +1,11 @@
 package com.ab.util.webview;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnKeyListener;
 import android.graphics.Bitmap;
-import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.JsResult;
@@ -16,11 +14,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import com.ab.R;
 import com.ab.util.AbLogUtil;
-
-import java.util.logging.Logger;
+import com.ab.util.ToastUtil;
 
 /**
  * 描述：
@@ -30,9 +27,13 @@ import java.util.logging.Logger;
 public class Web {
     private WebView mWebView;
     private LinearLayout mLoadingLayout;
+    private Context mContext;
 
-    public Web(WebView webView, LinearLayout ll_loading_dialog) {
+    long firstTime = 0;
+
+    public Web(Context context, WebView webView, LinearLayout ll_loading_dialog) {
         super();
+        this.mContext = context;
         this.mWebView = webView;
         this.mLoadingLayout = ll_loading_dialog;
         initWebView();
@@ -108,6 +109,31 @@ public class Web {
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 mLoadingLayout.setVisibility(View.VISIBLE);
                 super.onPageStarted(view, url, favicon);
+            }
+        });
+
+        //监听返回事件
+        mWebView.setOnKeyListener(new View.OnKeyListener() {
+
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()) {  //表示按返回键时的操作
+                        mWebView.goBack();   //后退
+                        return true;    //已处理
+                    }
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        long secondTime = System.currentTimeMillis();
+                        if (secondTime - firstTime > 1000) {//如果两次按键时间间隔大于1000毫秒，则不退出
+                            ToastUtil.showMessage(mContext, "再按一次退出程序");
+                            firstTime = secondTime;//更新firstTime
+                            return true;
+                        } else {
+                            System.exit(0);//否则退出程序
+                        }
+                    }
+                }
+                return false;
             }
         });
 
