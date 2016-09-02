@@ -7,12 +7,4 @@
     <string name="back"></string>
 
 
-    <declare-styleable name="MaterialLayout">
-        <attr name="alpha" format="float" />
-        <attr name="alpha_step" format="integer" />
-        <attr name="framerate" format="integer" />
-        <attr name="duration" format="integer" />
-        <attr name="color" format="color" />
-        <attr name="scale" format="float" />
-    </declare-styleable>
 </resources>
