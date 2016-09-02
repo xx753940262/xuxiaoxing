@@ -137,7 +137,7 @@ public class AbBottomTabView extends LinearLayout {
      * tab的选中文字颜色.
      */
 //	private int tabSelectColor = Color.WHITE;
-    private int tabSelectColor = Color.rgb(1, 171, 220);
+    public static int tabSelectColor = Color.rgb(218,19,7);
 
     /**
      * 图片尺寸.

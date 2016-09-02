@@ -157,7 +157,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      */
     public void setTitle() {
         mAbTitleBar = this.getTitleBar();
-        mAbTitleBar.setTitleBarBackground(R.drawable.head_title_bg_blue);
+        mAbTitleBar.setTitleBarBackground(R.drawable.head_title_bg_red);
         mAbTitleBar.setTitleTextMargin(10, 0, 0, 0);
     }
 
@@ -166,6 +166,13 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      */
     public void setTitleHidden() {
         mAbTitleBar.setVisibility(View.GONE);
+    }
+
+    /**
+     * 显示标题
+     */
+    public void setTitleShow() {
+        mAbTitleBar.setVisibility(View.VISIBLE);
     }
 
     /**

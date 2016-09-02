@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.xx753940262'
 
 android {
     useLibrary 'org.apache.http.legacy'
