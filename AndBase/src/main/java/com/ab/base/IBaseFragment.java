@@ -1,6 +1,7 @@
 package com.ab.base;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 
 /**
@@ -18,7 +19,7 @@ public interface IBaseFragment {
     /**
      * 初始化控件
      */
-    public void initView(final View view);
+    public void initView(final View view, LayoutInflater inflater);
 
     /**
      * 业务处理操作（onCreateView方法中调用）

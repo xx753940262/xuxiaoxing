@@ -57,7 +57,7 @@ public class BaseFragment extends AbFragment implements AbDialogFragment.AbDialo
             //初始化SharedPreferences
             initSharedPreferencesHelper();
             // 控件初始化
-            initView(mContentView);
+            initView(mContentView,inflater);
 
         }
         //业务处理
@@ -111,7 +111,7 @@ public class BaseFragment extends AbFragment implements AbDialogFragment.AbDialo
     }
 
     @Override
-    public void initView(View view) {
+    public void initView(View view,LayoutInflater inflater) {
 
     }
 

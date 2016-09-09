@@ -38,5 +38,5 @@ dependencies {
     //Klog日志工具
     compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
     compile 'com.jakewharton:butterknife:7.0.1'
-
+    compile 'com.github.xx753940262:aes_rsa:1.0.1'
 }
