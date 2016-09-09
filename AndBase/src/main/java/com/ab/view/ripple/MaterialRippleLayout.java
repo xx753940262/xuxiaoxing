@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import com.ab.R;
 
 /**
- * 描述：点击水波动画-02
+ * 描述：点击水波动画
  * 作者：徐小星 on 2016/9/1 0001 10:18
  * 邮箱：xx@yougudongli.com
  */
