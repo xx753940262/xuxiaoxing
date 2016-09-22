@@ -15,8 +15,14 @@
  */
 package com.ab.soap;
 
-import java.util.List;
-import java.util.concurrent.Executor;
+import android.content.Context;
+
+import com.ab.global.AbAppConfig;
+import com.ab.global.AbAppException;
+import com.ab.http.AbHttpStatus;
+import com.ab.task.thread.AbThreadFactory;
+import com.ab.util.AbAppUtil;
+import com.ab.util.AbLogUtil;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -26,14 +32,8 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import android.content.Context;
-
-import com.ab.global.AbAppConfig;
-import com.ab.global.AbAppException;
-import com.ab.http.AbHttpStatus;
-import com.ab.task.thread.AbThreadFactory;
-import com.ab.util.AbAppUtil;
-import com.ab.util.AbLogUtil;
+import java.util.List;
+import java.util.concurrent.Executor;
 
 // TODO: Auto-generated Javadoc
 
