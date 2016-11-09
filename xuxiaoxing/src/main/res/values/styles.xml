@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/popop_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/popop_fade_out</item>
+    </style>
+    <!-- 标题栏 -->
+    <style name="TopbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_45</item>
+        <item name="android:background">@drawable/drawable_topbar_bg</item>
+    </style>
+    <style name="SwitchButtonMD">
+        <item name="kswThumbDrawable">@drawable/ksw_md_thumb</item>
+        <item name="kswBackColor">@color/ksw_md_back_color</item>
+        <item name="kswBackMeasureRatio">1.45</item>
+        <item name="kswThumbMarginLeft">-16dp</item>
+        <item name="kswThumbMarginTop">-14dp</item>
+        <item name="kswThumbMarginRight">-16dp</item>
+        <item name="kswThumbMarginBottom">-14dp</item>
+        <item name="kswThumbWidth">@dimen/ksw_md_thumb_ripple_size</item>
+        <item name="kswThumbHeight">@dimen/ksw_md_thumb_ripple_size</item>
+    </style>
+
+    <dimen name="height_50">50dp</dimen>
+</resources>

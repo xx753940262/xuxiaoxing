@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red_l">#ffdf3939</color>
+    <color name="green_l">#ff34da8e</color>
+    <color name="orange1">#ffffa202</color>
+    <color name="white0">#ffffffff</color>
+    <color name="gray0">#ff959595</color>
+    <color name="gray1">#ffefefef</color>
+    <color name="black0">#ff666666</color>
+    <color name="banktixian">#ff0088cc</color>
+    <color name="black1">#ff404040</color>
+    <color name="gray2">#fffffbf2</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="frag_tab0_btn_bg">#ff94867d</color>
+    <color name="frag_tab0_btn_num">#ff5f5f5f</color>
+    <color name="act_biz_tuan_msg_bg0">#fff5f5f5</color>
+    <color name="theme_color">#ffff7900</color>
+    <color name="theme_color1">#DA1307</color>
+    <color name="separator_lines">#ffe5e5e5</color>
+    <color name="separator_submenu">#ffea8010</color>
+    <color name="black">#000000</color>
+
+    <color name="default_menu_back">#f1f1f1</color>
+    <color name="default_menu_press_back">#fafafa</color>
+    <color name="default_menu_press_text">#000000</color>
+    <color name="default_menu_text">#00cf9b</color>
+    <color name="divider">#f1f1f1</color>
+    <color name="white">#ffffff</color>
+
+    <!-- topbar背景色 -->
+    <color name="bg_topbar">#fbfbfb</color>
+    <color name="md__defaultBackground">#FF555555</color>
+
+    <color name="line_color">#DADADA</color>
+
+    <color name="golden_stars">#FFC619</color>
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#ff2bc1ab</color>
+
+    <color name="color_ff">#F0F0F0</color>
+    <color name="color_00">#8A000000</color>
+
+    <color name="ksw_md_ripple_normal">#1E000000</color>
+    <color name="ksw_md_ripple_checked">#33019285</color>
+
+    <color name="ksw_md_solid_shadow">#33000000</color>
+
+    <color name="ksw_md_solid_normal">#ECECEC</color>
+    <color name="ksw_md_solid_checked">#019285</color>
+    <color name="ksw_md_solid_disable">#FFFFFF</color>
+    <color name="ksw_md_solid_checked_disable">#aaaaaa</color>
+</resources>
