@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_7d"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white0"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_10">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_40"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/white"
+            android:gravity="center_vertical"
+            android:text="姓名"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_40"
+            android:layout_weight="2"
+            android:background="@drawable/white"
+            android:gravity="center_vertical"
+            android:text="15100000000"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/line_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40"
+        android:layout_weight="1"
+        android:background="@drawable/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/padding_10"
+        android:text="山东省青岛市李沧区"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_14" />
+
+    <include layout="@layout/line_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40"
+        android:background="@color/white0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_10">
+
+        <LinearLayout
+            android:id="@+id/ll_morendizhi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+
+            <ImageView
+                android:id="@+id/img_moren"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/selected" />
+
+            <TextView
+                android:id="@+id/tv_moren"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding_10"
+                android:text="默认地址"
+                android:textColor="@color/morendizhi"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:paddingRight="@dimen/padding_10">
+
+
+            <TextView
+                android:id="@+id/tv_delete_address"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tv_edit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="修改"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

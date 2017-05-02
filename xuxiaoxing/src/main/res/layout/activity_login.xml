@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaoxing.common.view.scrollview.KJScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/login_background"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        style="@style/edit_no_foucs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                    android:id="@+id/ced_tel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height_55"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint="@string/username"
+                    android:drawableLeft="@drawable/shoujihao"
+                    android:imeOptions="actionNext"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:drawablePadding="@dimen/padding_10"
+                    android:paddingRight="@dimen/padding_10"
+                    android:textColor="@color/login_text"
+                    android:textColorHint="@color/login_text"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/text_size_14" />
+
+
+                <include layout="@layout/line_horizontal_paddingleft_20" />
+
+                <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                    android:id="@+id/cet_pwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height_55"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint="@string/pwd"
+                    android:imeOptions="actionDone"
+                    android:drawablePadding="@dimen/padding_10"
+                    android:inputType="textPassword"
+                    android:drawableLeft="@drawable/mima"
+                    android:nextFocusDown="@+id/act_login_btn_login"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_10"
+                    android:textColor="@color/login_text"
+                    android:textColorHint="@color/login_text"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/text_size_14" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height_45"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/shape_button"
+                android:text="@string/yanzheng"
+                android:textColor="@color/white0"
+                android:textSize="17.0sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_55"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10">
+
+                <TextView
+                    android:id="@+id/tv_forgot_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/padding_10"
+                    android:text="忘记密码"
+                    android:textColor="@color/login_text"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/tv_reg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text="注册账号"
+                    android:textColor="@color/login_text"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</com.xiaoxing.common.view.scrollview.KJScrollView>

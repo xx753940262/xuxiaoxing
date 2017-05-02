@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        style="@style/edit_no_foucs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_tou_xiang"
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:text="收货人"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+            <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                android:id="@+id/ce_username"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_45"
+                android:layout_weight="4"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint="@string/shou_huo_ren"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/ll_nick_name"
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:text="联系电话"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+            <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                android:id="@+id/ce_mobile"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_45"
+                android:layout_weight="4"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint="@string/lian_xi_dian_hua"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/ll_area"
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:text="所在地区"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tv_di_qu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding_10"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_12" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/next" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/ll_jie_dao"
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:text="街道"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <TextView
+                android:id="@+id/tv_jie_dao"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding_10"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_12" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/next" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45">
+
+            <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                android:id="@+id/ce_address"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_45"
+                android:layout_weight="4"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint="@string/xiang_xi_di_zhi"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_size_14" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45"
+            android:layout_marginTop="@dimen/margin_5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="3"
+                android:text="设为默认地址"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            style="@style/Wateripples"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:text="定位地址"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding_10"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_12" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/next" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_45"
+        android:layout_alignParentBottom="true"
+        android:clickable="true">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/head_bg_dzfk"
+            android:text="保存收货地址"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</RelativeLayout>

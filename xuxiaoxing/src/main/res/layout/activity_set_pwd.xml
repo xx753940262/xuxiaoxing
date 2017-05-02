@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaoxing.common.view.scrollview.KJScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/login_background"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        style="@style/edit_no_foucs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                        android:id="@+id/cdt_yan_zheng_ma"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_55"
+                        android:layout_weight="2"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:drawableLeft="@drawable/yanzhengma"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:hint="@string/hint_yanzhengma"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/padding_20"
+                        android:paddingRight="@dimen/padding_10"
+                        android:textColor="@color/login_text"
+                        android:textColorHint="@color/login_text"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/btn_countdown"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="点击获取验证码"
+                        android:textColor="@color/btn_countdown"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+                <include layout="@layout/line_horizontal_paddingleft_20" />
+
+
+                <com.xiaoxing.common.view.clear_edit_text.ClearEditText
+                    android:id="@+id/cet_pwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height_55"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:drawableLeft="@drawable/mima"
+                    android:drawablePadding="@dimen/padding_10"
+                    android:hint="@string/setpwd"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/act_login_btn_login"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_10"
+                    android:textColor="@color/login_text"
+                    android:textColorHint="@color/login_text"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/text_size_14" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_kai_qi"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height_45"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/shape_button"
+                android:text="@string/kai_qi_xue_xi"
+                android:textColor="@color/white0"
+                android:textSize="17.0sp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</com.xiaoxing.common.view.scrollview.KJScrollView>
