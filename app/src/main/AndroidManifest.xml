@@ -3,14 +3,13 @@
     package="com.zmr.xuxiaoxing">
 
     <application
-        android:name=".base.AppBaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".activity.Activity_Splash"
+            android:name="com.xiaoxing.module.splash.activity.Activity_Splash"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,16 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--启动界面-->
-        <!--<activity android:name=".activity.Activity_Splash" />-->
-        <!--启动引导页-->
-        <activity android:name=".activity.Activity_Guide" />
+
+        <activity android:name="com.xiaoxing.module.splash.activity.Activity_Guide" />
         <!--启动动画-->
-        <activity android:name=".activity.Activity_Animation" />
+        <activity android:name="com.xiaoxing.module.splash.activity.Activity_Animation" />
         <!--主界面-->
-        <activity android:name=".activity.Activity_Main" />
+        <activity android:name="com.xiaoxing.module.main.MainActivity" />
         <!--扫描二维码界面-->
-        <activity android:name="com.zxing.activity.CaptureActivity" />
+        <!--<activity android:name="com.zxing.activity.CaptureActivity" />-->
 
 
     </application>

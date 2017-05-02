@@ -38,7 +38,7 @@
 
     <color name="golden_stars">#FFC619</color>
 
-    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#ff2bc1ab</color>
 
@@ -54,4 +54,53 @@
     <color name="ksw_md_solid_checked">#019285</color>
     <color name="ksw_md_solid_disable">#FFFFFF</color>
     <color name="ksw_md_solid_checked_disable">#aaaaaa</color>
+
+    <color name="login_background">#ebeced</color>
+    <color name="login_btn_background">#49bbb1</color>
+    <color name="head_bg_dzfk">#f45128</color>
+    <color name="login_text">#646667</color>
+    <color name="register_xie_yi">#49bbb1</color>
+    <color name="register_wo_jie_shou">#525354</color>
+
+    <color name="btn_countdown">#57a5c9</color>
+
+    <color name="ios_btntext_blue">#007aff</color>
+    <color name="text_title_11">#111111</color>
+    <color name="text_msg_33">#333333</color>
+    <color name="text_input_44">#444444</color>
+
+    <color name="text_item_33">#333333</color>
+    <color name="btn_alert">#222222</color>
+
+
+
+
+    <color name="line_dd">#cccccc</color>
+
+    <color name="ios_btn_normal">#ffffff</color>
+    <color name="ios_btn_pressed">#eeeeee</color>
+
+    <color name="bg_white">#ffffff</color>
+
+    <color name="text_gray">#999999</color>
+    <color name="text_gray_light">#B3B3B3</color>
+
+    <color name="text_black">#333333</color><!--正式发布时改成666666-->
+    <color name="text_black_light" >#666666</color><!--正式发布时改成666666-->
+
+    <color name="dimgray">#696969</color>
+
+    <color name="hintColor">#d7d7d7</color>
+    <color name="pressBarBg">#f2f2f2</color>
+    <color name="lightBg">#fefefe</color>
+    <color name="gray">#808080</color>
+    <color name="crimson">#dc143c</color>
+    <color name="orangered">#ff4500</color>
+    <color name="page_backgroup">#f2f2f2</color>
+    <color name="morendizhi">#df6e23</color>
+
+    <color name="gray_7d">#7d7d7d</color>
+    <color name="gray_ee">#eeeeee</color>
+
+    <color name="orange">#FFE85009</color>
 </resources>

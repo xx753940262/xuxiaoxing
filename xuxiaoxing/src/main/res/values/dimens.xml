@@ -11,6 +11,7 @@
     <dimen name="line_width">0.39999998dp</dimen>
     <dimen name="line_height">0.39999998dp</dimen>
     <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
 
     <dimen name="dp_066">0.66dp</dimen>
     <dimen name="dp_4">4dp</dimen>
@@ -42,4 +43,31 @@
 
     <dimen name="three_grid_unit">24dp</dimen>
     <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+
+    <dimen name="round_corner">8dp</dimen>
+    <dimen name="line_1px">1px</dimen>
+
+    <dimen name="btn_txt_size">14sp</dimen>
+    <dimen name="title_txt_size">17sp</dimen>
+    <dimen name="msg_txt_size">14sp</dimen>
+    <dimen name="item_txt_size">14sp</dimen>
+    <dimen name="input_txt_size">14sp</dimen>
+
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="bottomsheet_default_sheet_width">0dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="height_48">48dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="padding_5">5dp</dimen>
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+    <dimen name="height_55">55dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+
 </resources>

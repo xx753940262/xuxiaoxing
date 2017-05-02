@@ -10,7 +10,8 @@
     
     <!-- 透明 -->
     <drawable name="transparent">#00000000</drawable>
-    
+    <drawable name="loading_background">#dcdcdc</drawable>
+
     <!-- topbar和item的背景色 -->
     <drawable name="bg_topbar">#fbfbfb</drawable>
     
