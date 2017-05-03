@@ -20,7 +20,7 @@ import com.xiaoxing.common.dialog.materialDialog.MaterialDialogUtil;
 import com.xiaoxing.common.image.AbImageLoader;
 import com.xiaoxing.common.util.AbViewHolder;
 import com.xiaoxing.common.util.SharedPreferencesHelper;
-import com.xiaoxing.module.address.activity.Activity_EditOrAddNewAddress;
+import com.xiaoxing.module.address.activity.EditOrAddNewAddressActivity;
 
 import java.util.List;
 import java.util.Map;
@@ -196,7 +196,7 @@ public class Adapter_Address_Change extends BaseAdapter {
                 bundle.putString("detail", detail);
                 bundle.putString("addressId", addressId);
                 bundle.putString("mAddressType", "updateAddress");
-                mOperation.startActivityForResult(bundle, 100, Activity_EditOrAddNewAddress.class);
+                mOperation.startActivityForResult(bundle, 100, EditOrAddNewAddressActivity.class);
             }
         });
 //        //设置加载中的View

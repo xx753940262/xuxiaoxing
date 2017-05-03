@@ -2,6 +2,7 @@ package com.xiaoxing.module.address.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -24,7 +25,7 @@ import java.util.Map;
  * 作者：徐小星 on 2016/9/27 0027 13:20
  * 邮箱：xx@yougudongli.com
  */
-public class Activity_AreaSelect extends BaseActivity implements Fragment_Area.OnFragmentInteractionListener {
+public class AreaSelectActivity extends BaseActivity implements Fragment_Area.OnFragmentInteractionListener {
     private Fragment oneFragment;
     private Fragment twoFragment;
     private Map map = new HashMap();
@@ -39,14 +40,22 @@ public class Activity_AreaSelect extends BaseActivity implements Fragment_Area.O
     @Override
     public void initView(View view) {
         super.initView(view);
+
+        setHeaderTitle(R.string.select_address);
+
+    }
+
+    @Override
+    public void getBundleValue(Bundle bundle) {
+        super.getBundleValue(bundle);
+
+        mDistrictId = bundle.getString("districtId");
     }
 
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
-        setHeaderBack();
-        setHeaderTitle(R.string.select_address);
-        getBundleValue();
+
         if (mDistrictId.equals("")) {
             oneFragment = Fragment_Area.newInstance("1", "", "");
         } else {
@@ -56,12 +65,6 @@ public class Activity_AreaSelect extends BaseActivity implements Fragment_Area.O
         fragmentManager.beginTransaction().replace(R.id.content, oneFragment).commit();
     }
 
-    private void getBundleValue() {
-        Intent intent = this.getIntent();
-        if (intent != null) {
-            mDistrictId = intent.getStringExtra("districtId");
-        }
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

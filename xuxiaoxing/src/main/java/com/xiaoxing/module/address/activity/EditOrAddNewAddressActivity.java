@@ -13,13 +13,11 @@ import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
 import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
-import com.xiaoxing.common.http.OnMessageResponse;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
 import com.xiaoxing.module.address.model.AddressSet;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,17 +29,17 @@ import java.util.regex.Pattern;
  * 作者：xiaoxing on 17/4/16 10:44
  * 邮箱：2235445233@qq.com
  */
-public class Activity_EditOrAddNewAddress extends BaseActivity implements OnMessageResponse, View.OnClickListener {
+public class EditOrAddNewAddressActivity extends BaseActivity {
 
-    TextView tv_jie_dao;
-    ClearEditText mCeUsername;
-    ClearEditText mCeMobile;
-    TextView mDiQu;
-    ClearEditText mCeAddress;
+    private TextView tv_jie_dao;
+    private ClearEditText mCeUsername;
+    private ClearEditText mCeMobile;
+    private TextView mDiQu;
+    private ClearEditText mCeAddress;
 
-    CheckBox checkBox;
+    private CheckBox checkBox;
 
-    Button btn_save;
+    private Button btn_save;
 
 
     private String districtId; //区id
@@ -118,12 +116,12 @@ public class Activity_EditOrAddNewAddress extends BaseActivity implements OnMess
         int i = v.getId();
         if (i == R.id.ll_area) {
             mBundle.putString("districtId", "");
-            getOperation().startActivityForResult(mBundle, 100, Activity_AreaSelect.class);
+            getOperation().startActivityForResult(mBundle, 100, AreaSelectActivity.class);
 
         } else if (i == R.id.ll_jie_dao) {
             if (!getTextViewValue(mDiQu).equals("")) {
                 mBundle.putString("districtId", districtId);
-                getOperation().startActivityForResult(mBundle, 101, Activity_AreaSelect.class);
+                getOperation().startActivityForResult(mBundle, 101, AreaSelectActivity.class);
             } else {
                 ToastUtil.showMessage(this, "请先选择所在地区");
             }
@@ -256,13 +254,4 @@ public class Activity_EditOrAddNewAddress extends BaseActivity implements OnMess
 
     }
 
-    @Override
-    public void onMessageResponse(String url, JSONArray jo) throws JSONException {
-
-    }
-
-    @Override
-    public void onMessageResponse(String url, String str) throws Exception {
-
-    }
 }

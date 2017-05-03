@@ -22,7 +22,7 @@ import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.dialog.StyledDialog;
 import com.xiaoxing.common.view.dialog.bottomsheet.BottomSheetBean;
 import com.xiaoxing.common.view.dialog.interfaces.MyItemDialogListener;
-import com.xiaoxing.module.address.activity.Activity_ChangeAddress;
+import com.xiaoxing.module.address.activity.ChangeAddressActivity;
 import com.xiaoxing.module.address.model.AddressetGetDefault;
 import com.xiaoxing.module.shopcar.adapter.Adapter_QueRenDingDanGoods;
 import com.xiaoxing.module.shopcar.model.GoodsInfo2;
@@ -428,7 +428,7 @@ public class QueRenDingDanActivity extends BaseActivity implements OnMessageResp
 
     private void chooseAddress() {
         Bundle bundle1 = new Bundle();
-        getOperation().startActivityForResult(bundle1, 100, Activity_ChangeAddress.class);
+        getOperation().startActivityForResult(bundle1, 100, ChangeAddressActivity.class);
     }
 
 

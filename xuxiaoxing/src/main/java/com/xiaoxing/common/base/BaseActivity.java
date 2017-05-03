@@ -119,6 +119,27 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
     public void initView(View view) {
         //设置标题
         setTitle();
+        getBundle();
+    }
+
+    /**
+     * 获取bundle
+     */
+    private void getBundle() {
+
+        Bundle intent = this.getIntent().getExtras();
+        if (intent != null) {
+
+            getBundleValue(intent);
+        }
+    }
+
+    /**
+     * 获取bundle的值
+     *
+     * @param bundle
+     */
+    public void getBundleValue(Bundle bundle) {
     }
 
     @Override
@@ -167,6 +188,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
     /**
      * 获取共通操作机能
      */
+
     public Operation getOperation() {
         return this.mBaseOperation;
     }
@@ -206,6 +228,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
 
     /**
      * 设置返回按钮是否显示
+     *
      * @param b
      * @return
      */

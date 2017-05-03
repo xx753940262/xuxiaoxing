@@ -72,10 +72,17 @@ public class SetPwdActivity extends BaseActivity {
     }
 
     @Override
+    public void getBundleValue(Bundle bundle) {
+        super.getBundleValue(bundle);
+
+        mTel = bundle.getString("tel");
+        mType = bundle.getString("type");
+        countDown();
+    }
+
+    @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
-
-        getBundleValue();
 
     }
 
@@ -230,20 +237,6 @@ public class SetPwdActivity extends BaseActivity {
         }
 
         return true;
-    }
-
-    /**
-     * 获取bundleValue
-     */
-    private void getBundleValue() {
-
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            mTel = bundle.getString("tel");
-            mType = bundle.getString("type");
-            countDown();
-        }
-
     }
 
     /**
