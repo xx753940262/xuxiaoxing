@@ -25,6 +25,11 @@ public interface IBaseActivity {
     public void initView(final View view);
 
     /**
+     * 初始化事件
+     */
+    public void initEvent();
+
+    /**
      * 业务处理操作（onCreate方法中调用）
      *
      * @param mContext 当前Activity对象

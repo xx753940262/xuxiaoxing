@@ -9,12 +9,12 @@ import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.util.ReadAssetsRawTextUtil;
 
 /**
- * 描述：
+ * 描述：协议
  * 作者：xiaoxing on 17/4/8 09:06
  * 邮箱：2235445233@qq.com
  */
 public class XieYiActivity extends BaseActivity {
-    TextView tvXieYi;
+    private TextView mTvXieYi; //协议内容
 
     @Override
     public int bindLayout() {
@@ -25,14 +25,22 @@ public class XieYiActivity extends BaseActivity {
     public void initView(View view) {
         super.initView(view);
 
-        tvXieYi  = (TextView) view.findViewById(R.id.tv_xie_yi);
+        setHeaderTitle(R.string.xieyi);
+
+        mTvXieYi = (TextView) view.findViewById(R.id.tv_xie_yi);
     }
 
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
-        setHeaderBack();
-        setHeaderTitle(R.string.xieyi);
-        tvXieYi.setText(ReadAssetsRawTextUtil.readFromAssets(this, "xieyi.txt"));
+
+        initXieYiData();
+    }
+
+    /**
+     * 初始化协议数据
+     */
+    private void initXieYiData() {
+        mTvXieYi.setText(ReadAssetsRawTextUtil.readFromAssets(this, "xieyi.txt"));
     }
 }

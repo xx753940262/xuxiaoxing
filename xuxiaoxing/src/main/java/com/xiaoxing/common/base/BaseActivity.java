@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.ab.R;
 import com.xiaoxing.common.activity.AbActivity;
+import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
 import com.xiaoxing.common.fragment.AbDialogFragment;
 import com.xiaoxing.common.fragment.AbLoadDialogFragment;
 import com.xiaoxing.common.http.OnMessageResponse;
@@ -37,6 +38,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
     public AbTitleBar mAbTitleBar = null;  //标题
     public SharedPreferencesHelper sHelper; //SharedPreferencesHelper
     protected Bundle mSavedInstanceState;
+    private boolean isBackShow = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
         initSharedPreferencesHelper();
         //初始化控件
         initView(mContextView);
+        //初始化事件
+        initEvent();
         //业务操作
         doBusiness(this);
 
@@ -113,12 +117,18 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
 
     @Override
     public void initView(View view) {
+        //设置标题
+        setTitle();
+    }
+
+    @Override
+    public void initEvent() {
+
     }
 
     @Override
     public void doBusiness(Context mContext) {
-        //设置标题
-        setTitle();
+
         initData();
     }
 
@@ -167,6 +177,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      * @param title
      */
     public void setHeaderTitle(int title) {
+        setHeaderBack();
         mAbTitleBar.setTitleText(AbStrUtil.rIntToStr(this, title));
         mAbTitleBar.setTitleBarGravity(Gravity.CENTER, Gravity.CENTER);
     }
@@ -177,6 +188,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      * @param title
      */
     public void setHeaderTitle(String title) {
+        setHeaderBack();
         mAbTitleBar.setTitleText(title);
         mAbTitleBar.setTitleBarGravity(Gravity.CENTER, Gravity.CENTER);
     }
@@ -186,7 +198,20 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      * 设置返回按钮
      */
     public void setHeaderBack() {
-        mAbTitleBar.setLogo(R.drawable.btn_back_header);
+        if (isBackShow) {
+            mAbTitleBar.setLogo(R.drawable.btn_back_header);
+        }
+
+    }
+
+    /**
+     * 设置返回按钮是否显示
+     * @param b
+     * @return
+     */
+    public boolean setHeadBackHidden(boolean b) {
+        isBackShow = b;
+        return isBackShow;
     }
 
     /**
@@ -355,6 +380,14 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      */
     public boolean getIsFirstLogin() {
         return sHelperGetBoolean(BaseConstant.IS_FIRST, true);
+    }
+
+
+    /**
+     * Gifdialog
+     */
+    public void showGifdialog() {
+        LoadingDialogUtil.showGifdialog(this);
     }
 
 }

@@ -10,7 +10,6 @@ import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
 import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
-import com.xiaoxing.common.http.OnMessageResponse;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.TimeCountUtil;
 import com.xiaoxing.common.util.ToastUtil;
@@ -19,7 +18,6 @@ import com.xiaoxing.module.login.model.Register;
 import com.xiaoxing.module.login.model.SendSMS;
 import com.xiaoxing.module.login.model.UpdatePwd;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,11 +26,11 @@ import org.json.JSONObject;
  * 作者：xiaoxing on 17/4/7 15:11
  * 邮箱：2235445233@qq.com
  */
-public class SetPwdActivity extends BaseActivity implements OnMessageResponse,View.OnClickListener {
+public class SetPwdActivity extends BaseActivity {
 
-    ClearEditText cdtYanZhengMa;
-    ClearEditText cetPwd;
-    TextView btnCountdown;
+    private ClearEditText mCdtYanZhengMa;   //验证码
+    private ClearEditText mCetPwd;          //密码
+    private TextView mBtnCountdown;         //重新发送验证码
 
 
     private String mTel, mVerityCode, mPwd, mType;
@@ -45,23 +43,147 @@ public class SetPwdActivity extends BaseActivity implements OnMessageResponse,Vi
     @Override
     public void initView(View view) {
         super.initView(view);
-        cdtYanZhengMa = (ClearEditText) view.findViewById(R.id.cdt_yan_zheng_ma);
-        cetPwd = (ClearEditText) view.findViewById(R.id.cet_pwd);
-        btnCountdown = (ClearEditText) view.findViewById(R.id.btn_countdown);
+
+        setHeaderTitle(R.string.set_pwd);
+
+        mCdtYanZhengMa = (ClearEditText) view.findViewById(R.id.cdt_yan_zheng_ma);
+        mCetPwd = (ClearEditText) view.findViewById(R.id.cet_pwd);
+        mBtnCountdown = (TextView) view.findViewById(R.id.btn_countdown);
     }
 
+    @Override
+    public void initEvent() {
+        super.initEvent();
+        mBtnCountdown.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View view) {
         int i = view.getId();
         if (i == R.id.btn_kai_qi) {
+
             register();
 
         } else if (i == R.id.btn_countdown) {
+
             reCountDown();
 
         }
     }
+
+    @Override
+    public void doBusiness(Context mContext) {
+        super.doBusiness(mContext);
+
+        getBundleValue();
+
+    }
+
+    @Override
+    public void onMessageResponse(String url, JSONObject jo) throws JSONException {
+        httpResultRegister(url, jo);
+        httpResultUpdatePwd(url, jo);
+        httpResultSendCheckCode(url, jo);
+    }
+
+    /**
+     * 发送验证码
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultSendCheckCode(String url, JSONObject jo) {
+        if (url.equals(BaseConstant.SENE_CHECK_CODE) && jo != null) {
+            try {
+                SendSMS sendSMS = new SendSMS(jo.toString());
+
+                if (sendSMS != null) {
+
+
+                    if (sendSMS.getCode().equals("200")) {
+
+                        ToastUtil.showMessage(this, "验证码发送成功");
+                    } else {
+
+                        ToastUtil.showMessage(this, sendSMS.getMsg());
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /**
+     * 更新密码
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultUpdatePwd(String url, JSONObject jo) {
+        if (url.equals(BaseConstant.UPDATE_PASSWORD) && jo != null) {
+            try {
+                UpdatePwd updatePwd = new UpdatePwd(jo.toString());
+
+                if (updatePwd != null) {
+
+
+                    if (updatePwd.getCode().equals("200")) {
+
+                        ToastUtil.showMessage(this, "密码修改成功");
+
+                        startActivity(LoginActivity.class);
+                        finish();
+                        sHelper.removeString(BaseConstant.PASSWORD);
+                    } else {
+
+                        ToastUtil.showMessage(this, updatePwd.getMsg());
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /**
+     * 注册
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultRegister(String url, JSONObject jo) {
+        if (url.equals(BaseConstant.REGISTER) && jo != null) {
+            try {
+                Register register = new Register(jo.toString());
+
+                if (register != null) {
+
+
+                    if (register.getCode().equals("200")) {
+
+                        ToastUtil.showMessage(this, "注册成功");
+
+                        sHelper.putString(BaseConstant.USERNAME, mTel);
+                        startActivity(LoginActivity.class);
+                        finish();
+                    } else {
+
+                        ToastUtil.showMessage(this, register.getMsg());
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
 
     /**
      * 执行注册
@@ -69,17 +191,21 @@ public class SetPwdActivity extends BaseActivity implements OnMessageResponse,Vi
     private void register() {
         if (checkCodePwd()) {
 
-//            Api.verityCode(this, mTel, mVerityCode);
+            regOrUpdatePwd();
+        }
+    }
 
-            if (mType.equals("register")) {
+    /**
+     * 注册或修改密码
+     */
+    private void regOrUpdatePwd() {
+        showGifdialog();
+        if (mType.equals("register")) {
 
-                LoadingDialogUtil.showGifdialog(this);
-                BaseApi.register(this, mTel, mPwd, mVerityCode);
-            } else if (mType.equals("forgot")) {
+            BaseApi.register(this, mTel, mPwd, mVerityCode);
+        } else if (mType.equals("forgot")) {
 
-                LoadingDialogUtil.showGifdialog(this);
-                BaseApi.updatePassword(this, mTel, mPwd, mVerityCode);
-            }
+            BaseApi.updatePassword(this, mTel, mPwd, mVerityCode);
         }
     }
 
@@ -89,8 +215,8 @@ public class SetPwdActivity extends BaseActivity implements OnMessageResponse,Vi
      * @return
      */
     private boolean checkCodePwd() {
-        mVerityCode = getEidtTextValue(cdtYanZhengMa);
-        mPwd = getEidtTextValue(cetPwd);
+        mVerityCode = getEidtTextValue(mCdtYanZhengMa);
+        mPwd = getEidtTextValue(mCetPwd);
 
         if (AbStrUtil.isEmpty(mVerityCode)) {
             ToastUtil.showMessage(this, "验证码不能为空");
@@ -104,15 +230,6 @@ public class SetPwdActivity extends BaseActivity implements OnMessageResponse,Vi
         }
 
         return true;
-    }
-
-    @Override
-    public void doBusiness(Context mContext) {
-        super.doBusiness(mContext);
-        setHeaderBack();
-        setHeaderTitle(R.string.set_pwd);
-        getBundleValue();
-
     }
 
     /**
@@ -133,87 +250,17 @@ public class SetPwdActivity extends BaseActivity implements OnMessageResponse,Vi
      * 开始计时
      */
     private void countDown() {
-        new TimeCountUtil(btnCountdown, BaseConstant.SECURITY_CODE_TIME, 1000).start();
+        new TimeCountUtil(mBtnCountdown, BaseConstant.SECURITY_CODE_TIME, 1000).start();
     }
+
     /**
      * 重新发送
      */
     private void reCountDown() {
-        new TimeCountUtil(btnCountdown, BaseConstant.SECURITY_CODE_TIME, 1000).start();
+        new TimeCountUtil(mBtnCountdown, BaseConstant.SECURITY_CODE_TIME, 1000).start();
         LoadingDialogUtil.showGifdialog(this);
         BaseApi.sendCheckCode(this, mTel);
     }
 
-    @Override
-    public void onMessageResponse(String url, JSONObject jo) throws JSONException {
-        if (url.equals(BaseConstant.REGISTER) && jo != null) {
-            Register register = new Register(jo.toString());
 
-            if (register != null) {
-
-
-                if (register.getCode().equals("200")) {
-
-                    ToastUtil.showMessage(this, "注册成功");
-
-                    sHelper.putString(BaseConstant.USERNAME, mTel);
-                    startActivity(LoginActivity.class);
-                    finish();
-                }else {
-
-                    ToastUtil.showMessage(this, register.getMsg());
-
-                }
-            }
-
-        }
-        if (url.equals(BaseConstant.UPDATE_PASSWORD) && jo != null) {
-            UpdatePwd updatePwd = new UpdatePwd(jo.toString());
-
-            if (updatePwd != null) {
-
-
-                if (updatePwd.getCode().equals("200")) {
-
-                    ToastUtil.showMessage(this, "密码修改成功");
-
-                    startActivity(LoginActivity.class);
-                    finish();
-                    sHelper.removeString(BaseConstant.PASSWORD);
-                }else {
-
-                    ToastUtil.showMessage(this, updatePwd.getMsg());
-
-                }
-            }
-
-        }
-        if (url.equals(BaseConstant.SENE_CHECK_CODE) && jo != null) {
-            SendSMS sendSMS = new SendSMS(jo.toString());
-
-            if (sendSMS != null) {
-
-
-                if (sendSMS.getCode().equals("200")) {
-
-                    ToastUtil.showMessage(this, "验证码发送成功");
-                } else {
-
-                    ToastUtil.showMessage(this, sendSMS.getMsg());
-
-                }
-            }
-
-        }
-    }
-
-    @Override
-    public void onMessageResponse(String url, JSONArray jo) throws JSONException {
-
-    }
-
-    @Override
-    public void onMessageResponse(String url, String str) throws Exception {
-
-    }
 }

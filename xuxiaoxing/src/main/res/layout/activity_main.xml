@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <com.ab.view.sliding.AbBottomTabView
+    <com.xiaoxing.common.view.sliding.AbBottomTabView
         android:id="@+id/mBottomTabView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />

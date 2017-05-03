@@ -191,7 +191,7 @@ public class AbTitleBar extends LinearLayout {
         titleTextBtn.setTextColor(Color.rgb(255, 255, 255));
 //		titleTextBtn.setTextColor(Color.rgb(0, 0, 0));
 //        AbViewUtil.setTextSize(titleTextBtn, 40);
-        titleTextBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+        titleTextBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
         titleTextBtn.setPadding(5, 0, 5, 0);
         titleTextBtn.setGravity(Gravity.CENTER_VERTICAL);
         titleTextBtn.setBackgroundDrawable(null);
@@ -201,7 +201,7 @@ public class AbTitleBar extends LinearLayout {
         titleSmallTextBtn = new Button(context);
         titleSmallTextBtn.setTextColor(Color.rgb(0, 0, 0));
 //        AbViewUtil.setTextSize(titleSmallTextBtn, 30);
-        titleSmallTextBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+        titleSmallTextBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
         titleSmallTextBtn.setPadding(6, 0, 5, 0);
         titleSmallTextBtn.setGravity(Gravity.CENTER_VERTICAL);
         titleSmallTextBtn.setBackgroundDrawable(null);

@@ -11,14 +11,11 @@ import com.ab.R;
 import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
-import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
-import com.xiaoxing.common.http.OnMessageResponse;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
 import com.xiaoxing.module.login.model.SendSMS;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,11 +26,11 @@ import static com.ab.R.id.tv_xie_yi;
  * 作者：xiaoxing on 17/4/7 15:32
  * 邮箱：2235445233@qq.com
  */
-public class RegisterActivity extends BaseActivity implements OnMessageResponse {
-    private ClearEditText cetTel;
-    private TextView tvXieYi;
-    private CheckBox cbAgree;
-    private Button btn_next_step;
+public class RegisterActivity extends BaseActivity {
+    private ClearEditText mCetTel;  //手机号
+    private TextView mTvXieYi;      //协议
+    private CheckBox mCbAgree;      //协议checkbox
+    private Button mBtnNextStep;    //下一步
 
     private String mTel;
 
@@ -45,20 +42,27 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse 
     @Override
     public void initView(View view) {
         super.initView(view);
-        cetTel = (ClearEditText) view.findViewById(R.id.cet_tel);
-        tvXieYi = (TextView) view.findViewById(tv_xie_yi);
-        cbAgree = (CheckBox) view.findViewById(R.id.cb_agree);
-        btn_next_step = (Button) view.findViewById(R.id.btn_next_step);
+        setHeaderTitle(R.string.register);
 
-        tvXieYi.setOnClickListener(this);
-        btn_next_step.setOnClickListener(this);
+        mCetTel = (ClearEditText) view.findViewById(R.id.cet_tel);
+        mTvXieYi = (TextView) view.findViewById(tv_xie_yi);
+        mCbAgree = (CheckBox) view.findViewById(R.id.cb_agree);
+        mBtnNextStep = (Button) view.findViewById(R.id.btn_next_step);
+
+
+    }
+
+    @Override
+    public void initEvent() {
+        super.initEvent();
+        mTvXieYi.setOnClickListener(this);
+        mBtnNextStep.setOnClickListener(this);
     }
 
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
-        setHeaderBack();
-        setHeaderTitle(R.string.register);
+
     }
 
 
@@ -75,6 +79,49 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse 
         }
     }
 
+
+    @Override
+    public void onMessageResponse(String url, JSONObject jo) throws JSONException {
+
+        httpResultSendSMS(url, jo);
+
+    }
+
+    /**
+     * 发送短信
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultSendSMS(String url, JSONObject jo) {
+        if (url.equals(BaseConstant.SEND_SMS) && jo != null) {
+            try {
+                SendSMS sendSMS = new SendSMS(jo.toString());
+
+                if (sendSMS != null) {
+
+
+                    if (sendSMS.getCode().equals("200")) {
+
+                        ToastUtil.showMessage(this, "验证码发送成功");
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("tel", mTel);
+                        bundle.putString("type", "register");
+
+                        startBundleActivity(bundle, SetPwdActivity.class);
+                    } else {
+                        ToastUtil.showMessage(this, sendSMS.getMsg());
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
     /**
      * 下一步
      */
@@ -82,15 +129,27 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse 
 
         if (checkTelCheckBox()) {
 
-            LoadingDialogUtil.showGifdialog(this);
-            BaseApi.sendSms(this, mTel);
+            sendSMS();
 
 
         }
     }
 
+    /**
+     * 发送短信
+     */
+    private void sendSMS() {
+        showGifdialog();
+        BaseApi.sendSms(this, mTel);
+    }
+
+    /**
+     * 验证
+     *
+     * @return
+     */
     private boolean checkTelCheckBox() {
-        mTel = getEidtTextValue(cetTel);
+        mTel = getEidtTextValue(mCetTel);
 
         if (AbStrUtil.isEmpty(mTel)) {
             ToastUtil.showMessage(this, "手机号不能为空");
@@ -98,49 +157,11 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse 
         } else if (!AbStrUtil.isMobileNo(mTel)) {
             ToastUtil.showMessage(this, "手机号格式错误");
             return false;
-        } else if (!cbAgree.isChecked()) {
+        } else if (!mCbAgree.isChecked()) {
             ToastUtil.showMessage(this, "请先阅读并同意学习乐使用条款及隐私协议");
             return false;
         }
         return true;
     }
 
-    @Override
-    public void onMessageResponse(String url, JSONObject jo) throws JSONException {
-
-        if (url.equals(BaseConstant.SEND_SMS) && jo != null) {
-            SendSMS sendSMS = new SendSMS(jo.toString());
-
-            if (sendSMS != null) {
-
-
-                if (sendSMS.getCode().equals("200")) {
-
-                    ToastUtil.showMessage(this, "验证码发送成功");
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("tel", mTel);
-                    bundle.putString("type", "register");
-
-                    startBundleActivity(bundle, SetPwdActivity.class);
-                } else {
-                    ToastUtil.showMessage(this, sendSMS.getMsg());
-
-                }
-            }
-
-        }
-
-    }
-
-    @Override
-    public void onMessageResponse(String url, JSONArray jo) throws JSONException {
-
-        ToastUtil.showMessage(this, "JSONArray");
-    }
-
-    @Override
-    public void onMessageResponse(String url, String str) throws Exception {
-        ToastUtil.showMessage(this, "str");
-    }
 }

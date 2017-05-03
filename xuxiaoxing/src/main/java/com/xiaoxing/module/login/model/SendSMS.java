@@ -3,7 +3,7 @@ package com.xiaoxing.module.login.model;
 import com.xiaoxing.common.util.AbJsonUtil;
 
 /**
- * 描述：
+ * 描述：发送短信
  * 作者：xiaoxing on 17/4/9 10:47
  * 邮箱：2235445233@qq.com
  */

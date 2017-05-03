@@ -9,7 +9,6 @@ import com.ab.R;
 import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
-import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
@@ -46,24 +45,29 @@ public class LoginActivity extends BaseActivity {
     public void initView(View view) {
         super.initView(view);
 
+        setHeaderTitle(R.string.login);
+
         mCedTel = (ClearEditText) view.findViewById(R.id.ced_tel);
         mCetPwd = (ClearEditText) view.findViewById(R.id.cet_pwd);
         mBtnLogin = (Button) view.findViewById(R.id.btn_login);
         mTvForgotPwd = (TextView) view.findViewById(R.id.tv_forgot_pwd);
         mTvReg = (TextView) view.findViewById(R.id.tv_reg);
 
+    }
+
+    @Override
+    public void initEvent() {
+        super.initEvent();
+
         mBtnLogin.setOnClickListener(this);
         mTvForgotPwd.setOnClickListener(this);
         mTvReg.setOnClickListener(this);
     }
 
-
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
 
-        setHeaderBack();
-        setHeaderTitle(R.string.login);
         autoLogin();
     }
 
@@ -72,12 +76,15 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View view) {
         int i = view.getId();
         if (i == R.id.btn_login) {
+
             login();
 
         } else if (i == R.id.tv_forgot_pwd) {
+
             startActivity(ForgotPwdActivity.class);
 
         } else if (i == R.id.tv_reg) {
+
             startActivity(RegisterActivity.class);
 
         }
@@ -157,7 +164,7 @@ public class LoginActivity extends BaseActivity {
      */
     private void loginPost() {
 
-        LoadingDialogUtil.showGifdialog(this);
+        showGifdialog();
         BaseApi.login(this, mTel, mPwd);
     }
 

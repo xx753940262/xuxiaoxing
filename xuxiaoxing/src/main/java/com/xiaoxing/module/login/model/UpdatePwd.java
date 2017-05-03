@@ -3,7 +3,7 @@ package com.xiaoxing.module.login.model;
 import com.xiaoxing.common.util.AbJsonUtil;
 
 /**
- * 描述：
+ * 描述：修改密码
  * 作者：xiaoxing on 17/4/9 11:24
  * 邮箱：2235445233@qq.com
  */

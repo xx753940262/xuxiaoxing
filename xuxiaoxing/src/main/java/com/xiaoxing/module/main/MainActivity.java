@@ -3,7 +3,6 @@ package com.xiaoxing.module.main;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -21,19 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 描述：
+ * 描述：主页
  * 作者：xiaoxing on 17/5/2 16:38
  * 邮箱：2235445233@qq.com
  */
 public class MainActivity extends BaseActivity {
 
-    AbBottomTabView mBottomTabView;
+    private AbBottomTabView mBottomTabView; //底部tab
     private List<Drawable> tabDrawables = null;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public int bindLayout() {
@@ -44,12 +38,21 @@ public class MainActivity extends BaseActivity {
     public void initView(View view) {
         super.initView(view);
 
+        setHeadBackHidden(false);
         mBottomTabView = (AbBottomTabView) view.findViewById(R.id.mBottomTabView);
     }
 
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
+        initBottom();
+
+    }
+
+    /**
+     * 初始化底部tab
+     */
+    private void initBottom() {
         //如果里面的页面列表不能下载原因：
         //Fragment里面用的AbTaskQueue,由于有多个tab，顺序下载有延迟，还没下载好就被缓存了。改成用AbTaskPool，就ok了。
         //或者setOffscreenPageLimit(0)
@@ -149,6 +152,9 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 初始化head右侧
+     */
     private void initTitleRightLayout() {
 //        mAbTitleBar.clearRightView();
 //        View rightViewMore = mInflater.inflate(R.layout.geren_shuaxin, null);
