@@ -69,5 +69,6 @@
     <dimen name="width_60">60dp</dimen>
     <dimen name="height_55">55dp</dimen>
     <dimen name="padding_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
 
 </resources>

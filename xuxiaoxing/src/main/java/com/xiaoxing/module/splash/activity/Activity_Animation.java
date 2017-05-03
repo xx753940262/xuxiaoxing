@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.ab.R;
 import com.socks.library.KLog;
 import com.xiaoxing.common.base.BaseActivity;
-import com.xiaoxing.module.main.MainActivity;
+import com.xiaoxing.module.login.activity.LoginActivity;
 
 
 /**
@@ -102,7 +102,7 @@ public class Activity_Animation extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 KLog.e("动画结束...");
-                getOperation().startActivity(MainActivity.class);
+                startActivity(LoginActivity.class);
                 finish();
             }
         });

@@ -3,6 +3,7 @@ package com.xiaoxing.module.login.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.ab.R;
 import com.xiaoxing.common.base.BaseActivity;
@@ -24,9 +25,10 @@ import org.json.JSONObject;
  * 作者：xiaoxing on 17/4/7 15:07
  * 邮箱：2235445233@qq.com
  */
-public class ForgotPwdActivity extends BaseActivity implements OnMessageResponse,View.OnClickListener {
+public class ForgotPwdActivity extends BaseActivity implements OnMessageResponse {
 
-    ClearEditText cetTel;
+    private ClearEditText cetTel;
+    private Button btn_next_step;
 
     private String mTel;
 
@@ -40,6 +42,8 @@ public class ForgotPwdActivity extends BaseActivity implements OnMessageResponse
         super.initView(view);
 
         cetTel = (ClearEditText) view.findViewById(R.id.cet_tel);
+        btn_next_step = (Button) view.findViewById(R.id.btn_next_step);
+        btn_next_step.setOnClickListener(this);
     }
 
 
@@ -70,12 +74,12 @@ public class ForgotPwdActivity extends BaseActivity implements OnMessageResponse
             BaseApi.sendCheckCode(this, mTel);
 
 
-
         }
     }
 
     /**
      * 验证手机号
+     *
      * @return
      */
     private boolean checkTel() {
@@ -107,7 +111,7 @@ public class ForgotPwdActivity extends BaseActivity implements OnMessageResponse
                     bundle.putString("type", "forgot");
 
                     startBundleActivity(bundle, SetPwdActivity.class);
-                }else {
+                } else {
 
                     ToastUtil.showMessage(this, sendSMS.getMsg());
 

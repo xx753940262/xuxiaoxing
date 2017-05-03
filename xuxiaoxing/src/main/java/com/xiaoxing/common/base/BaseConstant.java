@@ -9,6 +9,7 @@ public class BaseConstant {
     public static final int SCANNIN_GREQUEST_CODE = -1;
     public static final double RESULT_OK = -1; //扫描二维码返回的参数
     public static final int SECURITY_CODE_TIME = 60000;
+    public static final String HTTP_RESULT_OK = "200";
 
 
     /*客户端加签key*/
@@ -35,8 +36,8 @@ public class BaseConstant {
     public static final String COVER = "cover";
 
     //url
-    public static final String DOMAIN = "http://bc.bvhao.cc"; //域名
-    public static final String DOMAIN_API = "http://bc.bvhao.cc/api"; //接口访问地址
+    public static final String DOMAIN = "http://yigoo.gxhao.cc"; //域名
+    public static final String DOMAIN_API = DOMAIN + "/api"; //接口访问地址
 
 
     //User
@@ -82,7 +83,6 @@ public class BaseConstant {
     public static final String ORDER_GET_LISTS = "/order/getLists"; //订单列表
     public static final String ORDER_DETAIL = "/order/orderDetail"; //订单详情
     public static final String ORDER_CONFIRM_ORDERNOW = "/order/confirmOrderNow"; //立即购买
-
 
 
     public static final class BROADCAST_FILTER {

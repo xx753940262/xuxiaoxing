@@ -186,14 +186,18 @@ public class HttpUtil {
 
                         JSONObject jo = new JSONObject(content);
 
-                        Log.e("JSONObject", "JSONObject11111");
-                        response.onMessageResponse(url, jo);
+                        if (jo != null) {
+                            Log.e("JSONObject", "JSONObject11111");
+                            response.onMessageResponse(url, jo);
+                        }
 
                     } else if (mJsonType == CheckJsonTypeUtil.JSON_TYPE.JSON_TYPE_ARRAY) {
 
                         Log.e("JSONArray", "JSONArray");
                         JSONArray jsonArray = new JSONArray(content);
-                        response.onMessageResponse(url, jsonArray);
+                        if (jsonArray != null) {
+                            response.onMessageResponse(url, jsonArray);
+                        }
 
                     } else {
                         Log.e("S", "S");

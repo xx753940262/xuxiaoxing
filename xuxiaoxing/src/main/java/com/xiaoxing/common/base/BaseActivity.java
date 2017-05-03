@@ -12,18 +12,23 @@ import com.ab.R;
 import com.xiaoxing.common.activity.AbActivity;
 import com.xiaoxing.common.fragment.AbDialogFragment;
 import com.xiaoxing.common.fragment.AbLoadDialogFragment;
+import com.xiaoxing.common.http.OnMessageResponse;
 import com.xiaoxing.common.util.AbDialogUtil;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.SharedPreferencesHelper;
 import com.xiaoxing.common.view.dialog.StyledDialog;
 import com.xiaoxing.common.view.titlebar.AbTitleBar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.ButterKnife;
 
 /**
  * Created by xuxing on 2015/11/25.
  */
-public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialogOnLoadListener, IBaseActivity {
+public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialogOnLoadListener, IBaseActivity, OnMessageResponse, View.OnClickListener {
 
     private Operation mBaseOperation = null;  //共通操作
     private View mContextView = null; //当前Activity渲染的视图View
@@ -189,8 +194,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      */
     public void setTitle() {
         mAbTitleBar = this.getTitleBar();
-//        mAbTitleBar.setTitleBarBackground(R.drawable.head_bg_green);
-        mAbTitleBar.setTitleBarBackground(R.drawable.head_bg_dzfk);
+        mAbTitleBar.setTitleBarBackground(R.drawable.head_bg_green);
         mAbTitleBar.setTitleTextMargin(10, 0, 0, 0);
     }
 
@@ -250,4 +254,107 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
 //        return sHelper.getBoolean(BaseConstant.IS_LOGIN);
         return sHelper.getString(BaseConstant.IS_LOGIN).equals("true") ? true : false;
     }
+
+    @Override
+    public void onMessageResponse(String url, JSONObject jo) throws JSONException {
+
+    }
+
+    @Override
+    public void onMessageResponse(String url, JSONArray jo) throws JSONException {
+    }
+
+    @Override
+    public void onMessageResponse(String url, String str) throws Exception {
+    }
+
+
+    /**
+     * 点击事件
+     *
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+
+    }
+
+
+    /**
+     * 获取SharedPreferencesHelper
+     *
+     * @return
+     */
+    public SharedPreferencesHelper getShelper() {
+
+        return sHelper;
+    }
+
+    /**
+     * @param key
+     * @param val
+     */
+    public void sHelperPutString(String key, String val) {
+        sHelper.putString(key, val);
+    }
+
+    /**
+     * @param key
+     * @param val
+     */
+    public void sHelperPutBoolen(String key, boolean val) {
+        sHelper.putBoolean(key, val);
+    }
+
+    /**
+     * @param key
+     */
+    public void removeShelper(String key) {
+        sHelper.removeString(key);
+    }
+
+    /**
+     * @param key
+     * @return
+     */
+    public String sHelperGetString(String key) {
+        return sHelper.getString(key);
+    }
+
+    /**
+     * @param key
+     * @return
+     */
+    public boolean sHelperGetBoolean(String key, boolean b) {
+        return sHelper.getBoolean(key, b);
+    }
+
+    /**
+     * 获取登录用户的id
+     *
+     * @return
+     */
+    public String getUID() {
+
+        return sHelperGetString(BaseConstant.UID);
+    }
+
+    /**
+     * 获取登录用户的token
+     *
+     * @return
+     */
+    public String getToken() {
+        return sHelperGetString(BaseConstant.TOKEN);
+    }
+
+    /**
+     * 是否第一次登录
+     *
+     * @return
+     */
+    public boolean getIsFirstLogin() {
+        return sHelperGetBoolean(BaseConstant.IS_FIRST, true);
+    }
+
 }

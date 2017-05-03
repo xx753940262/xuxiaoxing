@@ -3,6 +3,7 @@ package com.xiaoxing.module.login.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -21,15 +22,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.ab.R.id.tv_xie_yi;
+
 /**
  * 描述：注册
  * 作者：xiaoxing on 17/4/7 15:32
  * 邮箱：2235445233@qq.com
  */
-public class RegisterActivity extends BaseActivity implements OnMessageResponse,View.OnClickListener {
-    ClearEditText cetTel;
-    TextView tvXieYi;
-    CheckBox cbAgree;
+public class RegisterActivity extends BaseActivity implements OnMessageResponse {
+    private ClearEditText cetTel;
+    private TextView tvXieYi;
+    private CheckBox cbAgree;
+    private Button btn_next_step;
+
     private String mTel;
 
     @Override
@@ -41,8 +46,12 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse,
     public void initView(View view) {
         super.initView(view);
         cetTel = (ClearEditText) view.findViewById(R.id.cet_tel);
-        tvXieYi = (ClearEditText) view.findViewById(R.id.tv_xie_yi);
+        tvXieYi = (TextView) view.findViewById(tv_xie_yi);
         cbAgree = (CheckBox) view.findViewById(R.id.cb_agree);
+        btn_next_step = (Button) view.findViewById(R.id.btn_next_step);
+
+        tvXieYi.setOnClickListener(this);
+        btn_next_step.setOnClickListener(this);
     }
 
     @Override
@@ -60,7 +69,7 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse,
         if (i == R.id.btn_next_step) {
             next();
 
-        } else if (i == R.id.tv_xie_yi) {
+        } else if (i == tv_xie_yi) {
             startActivity(XieYiActivity.class);
 
         }
@@ -114,7 +123,7 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse,
                     bundle.putString("type", "register");
 
                     startBundleActivity(bundle, SetPwdActivity.class);
-                }else {
+                } else {
                     ToastUtil.showMessage(this, sendSMS.getMsg());
 
                 }
@@ -127,11 +136,11 @@ public class RegisterActivity extends BaseActivity implements OnMessageResponse,
     @Override
     public void onMessageResponse(String url, JSONArray jo) throws JSONException {
 
-        ToastUtil.showMessage(this,"JSONArray");
+        ToastUtil.showMessage(this, "JSONArray");
     }
 
     @Override
     public void onMessageResponse(String url, String str) throws Exception {
-        ToastUtil.showMessage(this,"str");
+        ToastUtil.showMessage(this, "str");
     }
 }

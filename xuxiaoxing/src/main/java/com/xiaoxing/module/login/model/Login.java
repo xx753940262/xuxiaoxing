@@ -1,7 +1,7 @@
 package com.xiaoxing.module.login.model;
 
-import com.xiaoxing.common.util.AbJsonUtil;
 import com.xiaoxing.common.gson.annotations.SerializedName;
+import com.xiaoxing.common.util.AbJsonUtil;
 
 /**
  * 描述：登录
@@ -305,4 +305,5 @@ public class Login {
             this.access_token = access_token;
         }
     }
+
 }

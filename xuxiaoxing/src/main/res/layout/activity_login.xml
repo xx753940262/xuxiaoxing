@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:paddingTop="@dimen/padding_20">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="@dimen/width_70"
+            android:layout_height="@dimen/height_70"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_24"
             android:src="@drawable/ic_launcher" />
 
         <LinearLayout
@@ -102,7 +102,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingRight="@dimen/padding_10"
-                    android:text="忘记密码"
+                    android:text="@string/forget_pwd"
                     android:textColor="@color/login_text"
                     android:textSize="@dimen/text_size_16" />
 
@@ -113,7 +113,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="right|center_vertical"
-                    android:text="注册账号"
+                    android:text="@string/reg"
                     android:textColor="@color/login_text"
                     android:textSize="@dimen/text_size_16" />
             </LinearLayout>
