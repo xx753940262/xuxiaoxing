@@ -12,8 +12,8 @@ import com.xiaoxing.common.base.BaseConstant;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
+import com.xiaoxing.module.address.activity.ChangeAddressActivity;
 import com.xiaoxing.module.login.model.Login;
-import com.xiaoxing.module.main.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -116,7 +116,8 @@ public class LoginActivity extends BaseActivity {
 
                         ToastUtil.showMessage(this, "登录成功");
                         saveLoginInfo(m_login.getData());
-                        startActivity(MainActivity.class);
+//                        startActivity(MainActivity.class);
+                        startActivity(ChangeAddressActivity.class);
                         finish();
                     } else {
                         ToastUtil.showMessage(this, m_login.getMsg());

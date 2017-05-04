@@ -15,15 +15,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ab.R;
+import com.show.api.ShowApiRequest;
+import com.socks.library.KLog;
 import com.xiaoxing.common.util.AbJsonUtil;
 import com.xiaoxing.module.address.model.AreaInfo;
 import com.xiaoxing.module.address.model.QuInfo;
-import com.show.api.ShowApiRequest;
-import com.socks.library.KLog;
 
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 
 /**
@@ -38,8 +36,8 @@ public class Fragment_Area extends Fragment implements AdapterView.OnItemClickLi
     private static final String ARG_PARAM3 = "id";
     private String appid = "25026";//要替换成自己的
     private String secret = "abb580c58cd4488e98936239dc651cce";//要替换成自己的
-    ListView mRefreshListView;
-    ProgressBar mLoadingBar;
+    private ListView mRefreshListView;
+    private ProgressBar mLoadingBar;
 
     private String mParam1 = "";    //级别
     private String mParam2 = "";    //省的名称
@@ -93,7 +91,8 @@ public class Fragment_Area extends Fragment implements AdapterView.OnItemClickLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_area, container, false);
-        ButterKnife.bind(this, view);
+        initView(view);
+
         mRefreshListView.setOnItemClickListener(this);
 
         mAreaUrl = "http://route.showapi.com/101-39"; //查询某级别的区域，级别1、级别2使用此接口
@@ -157,9 +156,6 @@ public class Fragment_Area extends Fragment implements AdapterView.OnItemClickLi
         }.start();
 
 
-        initView(view);
-
-
         return view;
     }
 
@@ -184,12 +180,6 @@ public class Fragment_Area extends Fragment implements AdapterView.OnItemClickLi
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
 

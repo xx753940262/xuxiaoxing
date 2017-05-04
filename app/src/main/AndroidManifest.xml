@@ -49,6 +49,9 @@
         <activity android:name="com.xiaoxing.module.login.activity.RegisterActivity"/>
         <activity android:name="com.xiaoxing.module.login.activity.ForgotPwdActivity"/>
         <activity android:name="com.xiaoxing.module.login.activity.XieYiActivity"/>
+        <activity android:name="com.xiaoxing.module.address.activity.AreaSelectActivity"/>
+        <activity android:name="com.xiaoxing.module.address.activity.ChangeAddressActivity"/>
+        <activity android:name="com.xiaoxing.module.address.activity.EditOrAddNewAddressActivity"/>
 
 
     </application>

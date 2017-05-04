@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ab.R;
@@ -31,15 +32,15 @@ import java.util.regex.Pattern;
  */
 public class EditOrAddNewAddressActivity extends BaseActivity {
 
-    private TextView tv_jie_dao;
+    private TextView mTvJieDao;
     private ClearEditText mCeUsername;
     private ClearEditText mCeMobile;
     private TextView mDiQu;
     private ClearEditText mCeAddress;
-
-    private CheckBox checkBox;
-
-    private Button btn_save;
+    private CheckBox mCheckBox;
+    private Button mBtnSave;
+    private LinearLayout mLLArea;
+    private LinearLayout mLLJieDao;
 
 
     private String districtId; //区id
@@ -58,32 +59,39 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
     public void initView(View view) {
         super.initView(view);
 
-        tv_jie_dao = (TextView) view.findViewById(R.id.tv_jie_dao);
+        mTvJieDao = (TextView) view.findViewById(R.id.tv_jie_dao);
         mDiQu = (TextView) view.findViewById(R.id.tv_di_qu);
         mCeUsername = (ClearEditText) view.findViewById(R.id.ce_username);
         mCeMobile = (ClearEditText) view.findViewById(R.id.ce_mobile);
         mCeAddress = (ClearEditText) view.findViewById(R.id.ce_address);
-        checkBox = (CheckBox) view.findViewById(R.id.checkBox);
-        btn_save = (Button) view.findViewById(R.id.btn_save);
-        btn_save.setOnClickListener(this);
+        mCheckBox = (CheckBox) view.findViewById(R.id.checkBox);
+        mBtnSave = (Button) view.findViewById(R.id.btn_save);
+        mLLArea = (LinearLayout) view.findViewById(R.id.ll_area);
+        mLLJieDao = (LinearLayout) view.findViewById(R.id.ll_jie_dao);
+
+    }
+
+    @Override
+    public void initEvent() {
+        super.initEvent();
+        mBtnSave.setOnClickListener(this);
+        mLLArea.setOnClickListener(this);
+        mLLJieDao.setOnClickListener(this);
     }
 
     @Override
     public void doBusiness(Context mContext) {
         super.doBusiness(mContext);
         setHeaderBack();
-        getBundleValue();
         getEditAddressBundle();
     }
 
-    private void getBundleValue() {
-
-        Bundle bundle = getIntent().getExtras();
-
-        if (bundle != null) {
-            mAddressType = bundle.getString("mAddressType");
-        }
+    @Override
+    public void getBundleValue(Bundle bundle) {
+        super.getBundleValue(bundle);
+        mAddressType = bundle.getString("mAddressType");
     }
+
 
     private void getEditAddressBundle() {
         String username = "";
@@ -106,7 +114,7 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
             mCeMobile.setText(phone);
             mCeAddress.setText(detail);
             mDiQu.setText(address);
-            tv_jie_dao.setText(street);
+            mTvJieDao.setText(street);
         }
 
     }
@@ -140,7 +148,7 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
         String ceMobile = getEidtTextValue(mCeMobile);
         String ceAddress = getEidtTextValue(mCeAddress);
         String cesDiqu = getTextViewValue(mDiQu);
-        String ceJiedao = getTextViewValue(tv_jie_dao);
+        String ceJiedao = getTextViewValue(mTvJieDao);
         String uid = sHelper.getString(BaseConstant.UID);
         String token = sHelper.getString(BaseConstant.TOKEN);
 
@@ -163,12 +171,12 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
 
         if (mAddressType.equals("addAddress")) {
             LoadingDialogUtil.showGifdialog(this);
-            BaseApi.addressSet(this, token, uid, ceUsername, "", ceMobile, cesDiqu, ceJiedao, ceAddress, checkBox.isChecked() == true ? "1" : "0");
+            BaseApi.addressSet(this, token, uid, ceUsername, "", ceMobile, cesDiqu, ceJiedao, ceAddress, mCheckBox.isChecked() == true ? "1" : "0");
 
         } else if (mAddressType.equals("updateAddress")) {
 
             LoadingDialogUtil.showGifdialog(this);
-            BaseApi.addressUpdate(this, token, uid, ceUsername, "", ceMobile, cesDiqu, ceJiedao, ceAddress, checkBox.isChecked() == true ? "1" : "0", mAddressId);
+            BaseApi.addressUpdate(this, token, uid, ceUsername, "", ceMobile, cesDiqu, ceJiedao, ceAddress, mCheckBox.isChecked() == true ? "1" : "0", mAddressId);
 
 
         }
@@ -195,7 +203,7 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
             final Map map = (Map) data.getSerializableExtra("addressInfo");
             mJieDaoName = getString(map, "jieDaoName", "");
             String jieDaoName = String.format("%s", mJieDaoName);
-            tv_jie_dao.setText(jieDaoName);
+            mTvJieDao.setText(jieDaoName);
         }
 
     }
@@ -211,26 +219,18 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
     @Override
     public void onMessageResponse(String url, JSONObject jo) throws JSONException {
 
-        if (url.equals(BaseConstant.ADDRESS_SET) && jo != null) {
-            AddressSet addressSet = new AddressSet(jo.toString());
+        httpResultAddressSet(url, jo);
+        httpResultAddressUpdate(url, jo);
 
-            if (addressSet != null) {
+    }
 
-
-                if (addressSet.getCode().equals("200")) {
-
-                    ToastUtil.showMessage(this, "添加成功");
-                    Intent mIntent = new Intent();
-                    // 设置结果，并进行传送
-                    setResult(101, mIntent); //intent为A传来的带有Bundle的intent，当然也可以自己定义新的Bundle
-                    finish();//此处一定要调用finish()方法
-
-                } else {
-                    ToastUtil.showMessage(this, addressSet.getMsg());
-                }
-            }
-
-        }
+    /**
+     * 更新地址
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultAddressUpdate(String url, JSONObject jo) {
         if (url.equals(BaseConstant.ADDRESS_UPDATE) && jo != null) {
             AddressSet addressSet = new AddressSet(jo.toString());
 
@@ -251,7 +251,35 @@ public class EditOrAddNewAddressActivity extends BaseActivity {
             }
 
         }
+    }
 
+    /**
+     * 添加地址
+     *
+     * @param url
+     * @param jo
+     */
+    private void httpResultAddressSet(String url, JSONObject jo) {
+        if (url.equals(BaseConstant.ADDRESS_SET) && jo != null) {
+            AddressSet addressSet = new AddressSet(jo.toString());
+
+            if (addressSet != null) {
+
+
+                if (addressSet.getCode().equals("200")) {
+
+                    ToastUtil.showMessage(this, "添加成功");
+                    Intent mIntent = new Intent();
+                    // 设置结果，并进行传送
+                    setResult(101, mIntent); //intent为A传来的带有Bundle的intent，当然也可以自己定义新的Bundle
+                    finish();//此处一定要调用finish()方法
+
+                } else {
+                    ToastUtil.showMessage(this, addressSet.getMsg());
+                }
+            }
+
+        }
     }
 
 }

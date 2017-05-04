@@ -35,7 +35,7 @@ import static com.xiaoxing.common.base.BaseConstant.HTTP_RESULT_OK;
  */
 public class ChangeAddressActivity extends BaseActivityList {
 
-    private Button btn_add_new_address;
+    private Button mBtnAddNewAddress;
 
     @Override
     public int bindLayout() {
@@ -52,8 +52,8 @@ public class ChangeAddressActivity extends BaseActivityList {
         mAbPullToRefreshView = (AbPullToRefreshView) this
                 .findViewById(R.id.mPullRefreshView);
         mListView = (ListView) this.findViewById(R.id.lv_address);
-        btn_add_new_address = (Button) this.findViewById(R.id.btn_add_new_address);
-        btn_add_new_address.setOnClickListener(this);
+        mBtnAddNewAddress = (Button) this.findViewById(R.id.btn_add_new_address);
+        mBtnAddNewAddress.setOnClickListener(this);
 
         // 使用自定义的Adapter
         myListViewAdapter = new Adapter_Address_Change(this, list,
