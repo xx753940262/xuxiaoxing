@@ -17,7 +17,7 @@ import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.Operation;
 import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
 import com.xiaoxing.common.dialog.materialDialog.MaterialDialogUtil;
-import com.xiaoxing.common.image.AbImageLoader;
+import com.xiaoxing.common.image.abimage.AbImageLoader;
 import com.xiaoxing.common.util.AbViewHolder;
 import com.xiaoxing.common.util.SharedPreferencesHelper;
 import com.xiaoxing.module.address.activity.EditOrAddNewAddressActivity;

@@ -67,12 +67,12 @@ public class BaseActivityList<T extends BaseAdapter> extends BaseActivity implem
         loading();
     }
 
-    @Override
-    public void getMoreData() {
+
+    protected void getMoreData() {
         loading();
     }
 
-    private void loading() {
+    protected void loading() {
 //        ProgressDialogUtils.showProgressDialog(this, BaseConstant.DATA_LOADING);
     }
 

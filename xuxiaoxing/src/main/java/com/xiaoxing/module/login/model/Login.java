@@ -1,6 +1,6 @@
 package com.xiaoxing.module.login.model;
 
-import com.xiaoxing.common.gson.annotations.SerializedName;
+import com.xiaoxing.common.third.gson.annotations.SerializedName;
 import com.xiaoxing.common.util.AbJsonUtil;
 
 /**

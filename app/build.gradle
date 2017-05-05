@@ -31,14 +31,13 @@ configurations {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:+'
-    compile 'com.android.support:support-v4:+'
 
-    compile 'com.android.support:design:+'
     //andbase框架
     compile project(':xuxiaoxing')
     //Klog日志工具
     compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.xx753940262:aes_rsa:1.0.1'
+
+
 }

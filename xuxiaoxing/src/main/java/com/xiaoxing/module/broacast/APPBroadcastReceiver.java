@@ -18,7 +18,7 @@ public class APPBroadcastReceiver extends BroadcastReceiver {
         String extra = intent.getStringExtra(BaseConstant.BROADCAST_FILTER.EXTRA_CODE);
         if (extra.equals(BaseConstant.INTENT_KEY.LOAD_MORE)) {//首页加载更多
         } else if (extra.equals(BaseConstant.INTENT_KEY.UPDATE_CART)) {//添加到购物车时，更新购物车列表数据
-//            Activity_Car.instance.cartList();
+//            CarActivity.instance.cartList();
         } else if (extra.equals(BaseConstant.INTENT_KEY.QUE_REN_DING_DAN)) {//确认订单
 //            Activity_QueRenDingDan.instance.queRenDingDan(intent);
         } else if (extra.equals(BaseConstant.INTENT_KEY.UPDATE_USER_INFO)) {//更新用戶的信息

@@ -15,12 +15,12 @@
  */
 package com.xiaoxing.common.util;
 
-import com.xiaoxing.common.gson.Gson;
-import com.xiaoxing.common.gson.GsonBuilder;
-import com.xiaoxing.common.gson.JsonArray;
-import com.xiaoxing.common.gson.JsonElement;
-import com.xiaoxing.common.gson.JsonParser;
-import com.xiaoxing.common.gson.reflect.TypeToken;
+import com.xiaoxing.common.third.gson.Gson;
+import com.xiaoxing.common.third.gson.GsonBuilder;
+import com.xiaoxing.common.third.gson.JsonArray;
+import com.xiaoxing.common.third.gson.JsonElement;
+import com.xiaoxing.common.third.gson.JsonParser;
+import com.xiaoxing.common.third.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.xiaoxing.module.address.model;
 import com.xiaoxing.common.util.AbJsonUtil;
-import com.xiaoxing.common.gson.annotations.SerializedName;
+import com.xiaoxing.common.third.gson.annotations.SerializedName;
 
 /**
  * 描述：

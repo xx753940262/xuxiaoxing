@@ -79,7 +79,7 @@ import com.xiaoxing.common.global.AbAppConfig;
 import com.xiaoxing.common.global.AbAppException;
 import com.xiaoxing.common.http.entity.MultipartEntity;
 import com.xiaoxing.common.http.entity.mine.content.StringBody;
-import com.xiaoxing.common.image.AbImageLoader;
+import com.xiaoxing.common.image.abimage.AbImageLoader;
 import com.xiaoxing.common.task.thread.AbThreadFactory;
 import com.xiaoxing.common.util.AbAppUtil;
 import com.xiaoxing.common.util.AbFileUtil;

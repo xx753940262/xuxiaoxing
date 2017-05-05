@@ -25,7 +25,7 @@ import android.widget.TextView;
 import com.ab.R;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
-import com.xiaoxing.common.image.AbImageLoader;
+import com.xiaoxing.common.image.abimage.AbImageLoader;
 import com.xiaoxing.common.util.SharedPreferencesHelper;
 import com.xiaoxing.module.shopcar.model.GoodsInfo2;
 import com.xiaoxing.module.shopcar.model.StoreInfo;

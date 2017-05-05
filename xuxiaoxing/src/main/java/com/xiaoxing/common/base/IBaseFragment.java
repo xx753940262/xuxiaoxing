@@ -34,10 +34,5 @@ public interface IBaseFragment {
 
     public abstract void initData();
 
-    /**
-     * 获取更多数据
-     */
-    public abstract void getMoreData();
-
 
 }

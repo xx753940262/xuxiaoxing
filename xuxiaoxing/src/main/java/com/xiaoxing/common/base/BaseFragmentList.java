@@ -66,8 +66,7 @@ public class BaseFragmentList<T extends BaseAdapter> extends BaseFragment implem
         loading();
     }
 
-    @Override
-    public void getMoreData() {
+    protected void getMoreData() {
         loading();
     }
 

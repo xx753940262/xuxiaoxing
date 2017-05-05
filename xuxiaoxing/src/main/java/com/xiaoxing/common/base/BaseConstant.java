@@ -1,11 +1,13 @@
 package com.xiaoxing.common.base;
 
+import com.xiaoxing.common.global.AbConstant;
+
 /**
  * 描述：java类中的常量都放在Constant中，xml中的常量都放在strings.xml中
  * 作者：徐小星 on 2016/7/21 12:42
  * 邮箱：xx@yougudongli.com
  */
-public class BaseConstant {
+public class BaseConstant extends AbConstant {
     public static final int SCANNIN_GREQUEST_CODE = -1;
     public static final double RESULT_OK = -1; //扫描二维码返回的参数
     public static final int SECURITY_CODE_TIME = 60000;

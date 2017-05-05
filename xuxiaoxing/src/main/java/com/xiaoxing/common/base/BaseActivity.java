@@ -34,9 +34,9 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
     private Operation mBaseOperation = null;  //共通操作
     private View mContextView = null; //当前Activity渲染的视图View
     private AbLoadDialogFragment mDialogFragment = null; //加载动画
-    public long mExitTime; //按两次退出时间
-    public AbTitleBar mAbTitleBar = null;  //标题
-    public SharedPreferencesHelper sHelper; //SharedPreferencesHelper
+    protected long mExitTime; //按两次退出时间
+    protected AbTitleBar mAbTitleBar = null;  //标题
+    protected SharedPreferencesHelper sHelper; //SharedPreferencesHelper
     protected Bundle mSavedInstanceState;
     private boolean isBackShow = true;
 
@@ -139,7 +139,7 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
      *
      * @param bundle
      */
-    public void getBundleValue(Bundle bundle) {
+    protected void getBundleValue(Bundle bundle) {
     }
 
     @Override
@@ -158,10 +158,6 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
 
     }
 
-    @Override
-    public void getMoreData() {
-
-    }
 
     /**
      * 点击两次返回退出app

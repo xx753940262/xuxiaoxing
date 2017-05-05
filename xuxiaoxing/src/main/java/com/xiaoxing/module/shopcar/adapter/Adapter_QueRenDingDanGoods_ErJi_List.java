@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.xiaoxing.common.image.AbImageLoader;
+import com.xiaoxing.common.image.abimage.AbImageLoader;
 import com.xiaoxing.common.util.AbViewHolder;
 
 import java.util.List;

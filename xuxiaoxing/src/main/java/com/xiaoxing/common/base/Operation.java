@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.xiaoxing.common.util.SharedPreferencesHelper;
-import com.xiaoxing.common.zxing.activity.CaptureActivity;
+import com.xiaoxing.common.third.zxing.activity.CaptureActivity;
 
 /**
  * 公用的方法

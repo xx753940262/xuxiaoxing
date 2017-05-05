@@ -29,18 +29,11 @@ public class BaseFragment extends AbFragment implements AbDialogFragment.AbDialo
      **/
     private Operation mBaseOperation = null;
 
-    /**
-     * 当前Fragment渲染的视图View
-     **/
-    //private View mContentView = null;
-
-    public SharedPreferencesHelper sHelper;
+    protected SharedPreferencesHelper sHelper;
     private AbLoadDialogFragment mDialogFragment = null; //加载动画
 
     protected boolean isVisible;
     protected boolean isPrepared;
-    protected String mUid;
-    protected String mToken;
 
 
     @Override
@@ -134,11 +127,6 @@ public class BaseFragment extends AbFragment implements AbDialogFragment.AbDialo
 
     }
 
-    @Override
-    public void getMoreData() {
-
-    }
-
     /**
      * 获取共通操作机能
      */
@@ -223,6 +211,7 @@ public class BaseFragment extends AbFragment implements AbDialogFragment.AbDialo
     public String getTextViewValue(TextView textView) {
         return getOperation().getTextViewValue(textView);
     }
+
     /**
      * 判断是否登录
      *
