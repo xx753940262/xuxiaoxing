@@ -6,8 +6,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 
 import com.ab.R;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.xiaoxing.common.third.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
@@ -61,10 +64,11 @@ public abstract class BaseRecyclerActivity<T> extends BaseActivity {
     private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = null;
 
     @Override
-    protected void initView() {
+    public void initView(View view) {
+        super.initView(view);
         initItemLayout();
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.base_swipe_refresh_lay);
-        mSwipeMenuRecyclerView = (SwipeMenuRecyclerView) findViewById(R.id.base_rv_list);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.base_swipe_refresh_lay);
+        mSwipeMenuRecyclerView = (SwipeMenuRecyclerView) view.findViewById(R.id.base_rv_list);
         setRefreshEnable(mCanRefresh, mOnRefreshListener);
         chooseListType(mListType, mIsVertical);
         if (-1 == layoutResId) {
@@ -73,6 +77,7 @@ public abstract class BaseRecyclerActivity<T> extends BaseActivity {
         mAdapter = new RvAdapter(layoutResId, new ArrayList<T>());
         mSwipeMenuRecyclerView.setAdapter(mAdapter);
     }
+
 
     /**
      * 设置子布局 layout

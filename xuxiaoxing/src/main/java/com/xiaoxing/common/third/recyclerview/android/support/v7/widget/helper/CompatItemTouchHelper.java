@@ -18,11 +18,13 @@ package com.xiaoxing.common.third.recyclerview.android.support.v7.widget.helper;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
 
-
 public class CompatItemTouchHelper extends ItemTouchHelper {
+
+    private Callback mCallback;
 
     public CompatItemTouchHelper(Callback callback) {
         super(callback);
+        this.mCallback = callback;
     }
 
     /**

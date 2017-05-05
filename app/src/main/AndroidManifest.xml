@@ -52,6 +52,8 @@
         <activity android:name="com.xiaoxing.module.address.activity.AreaSelectActivity"/>
         <activity android:name="com.xiaoxing.module.address.activity.ChangeAddressActivity"/>
         <activity android:name="com.xiaoxing.module.address.activity.EditOrAddNewAddressActivity"/>
+        <activity android:name="com.xiaoxing.module.recycler.swipe.activity.RvMultiFuncActivity"/>
+        <activity android:name="com.xiaoxing.module.recycler.swipe.activity.SwipeRVDemoActivity"/>
 
 
     </application>
