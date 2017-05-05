@@ -12,6 +12,15 @@ android {
         versionCode 1
         versionName "1.0"
 
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64', 'arm64-v8a'
+        }
+
+        // dex突破65535的限制
+        multiDexEnabled true
+
     }
     buildTypes {
 
@@ -39,5 +48,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.xx753940262:aes_rsa:1.0.1'
 
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.5
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
 
 }
