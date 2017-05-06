@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white0"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_10">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:gravity="center"
+            android:text="支付成功"
+            android:textColor="#2B2D2C"
+            android:textSize="@dimen/text_size_16"
+            android:visibility="gone" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_success"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_below="@+id/iv_animation_logo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="@dimen/margin_10" />
+
+        <Button
+            android:id="@+id/btn_wan_cheng"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40"
+            android:layout_marginTop="@dimen/margin_20"
+            android:background="@color/login_btn_background"
+            android:text="完成"
+            android:textColor="@color/white0" />
+    </LinearLayout>
+
+
+</LinearLayout>

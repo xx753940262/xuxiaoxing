@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ab.R;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.xiaoxing.common.activity.AbActivity;
 import com.xiaoxing.common.dialog.loadingDialog.LoadingDialogUtil;
 import com.xiaoxing.common.fragment.AbDialogFragment;
@@ -63,6 +64,8 @@ public class BaseActivity extends AbActivity implements AbDialogFragment.AbDialo
         doBusiness(this);
 
         StyledDialog.init(getApplicationContext());
+        Fresco.initialize(this);
+
     }
 
 

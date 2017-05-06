@@ -49,4 +49,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.+'
     compile 'commons-codec:commons-codec:1.7'
 
+    compile 'com.facebook.fresco:fresco:0.8.0+'
 }

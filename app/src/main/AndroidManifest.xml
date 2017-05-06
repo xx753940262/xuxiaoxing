@@ -54,6 +54,9 @@
         <activity android:name=".ui.address.activity.EditOrAddNewAddressActivity"/>
         <activity android:name=".ui.recycler.swipe.activity.RvMultiFuncActivity"/>
         <activity android:name=".ui.recycler.swipe.activity.SwipeRVDemoActivity"/>
+        <activity android:name=".pay.alipay.PaySuccessActivity"/>
+        <activity android:name=".pay.alipay.PayDemoActivity"/>
+        <activity android:name=".pay.alipay.H5PayDemoActivity"/>
 
 
     </application>

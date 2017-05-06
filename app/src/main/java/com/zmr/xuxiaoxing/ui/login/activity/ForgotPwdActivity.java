@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.base.BaseApi;
 import com.xiaoxing.common.base.BaseConstant;
 import com.xiaoxing.common.util.AbStrUtil;
 import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
 import com.zmr.xuxiaoxing.R;
+import com.zmr.xuxiaoxing.base.AppBaseActivity;
 import com.zmr.xuxiaoxing.ui.login.model.SendSMS;
 
 import org.json.JSONException;
@@ -25,7 +25,7 @@ import butterknife.OnClick;
  * 作者：xiaoxing on 17/4/7 15:07
  * 邮箱：2235445233@qq.com
  */
-public class ForgotPwdActivity extends BaseActivity {
+public class ForgotPwdActivity extends AppBaseActivity {
 
    @BindView(R.id.cet_tel)
     ClearEditText mCetTel;

@@ -10,11 +10,10 @@ import android.view.View;
 import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.view.sliding.AbBottomTabView;
 import com.zmr.xuxiaoxing.R;
+import com.zmr.xuxiaoxing.ui.car.fragment.FragmentCar;
 import com.zmr.xuxiaoxing.ui.main.fragment.Fragment_Five;
 import com.zmr.xuxiaoxing.ui.main.fragment.Fragment_Four;
-import com.zmr.xuxiaoxing.ui.main.fragment.Fragment_One;
 import com.zmr.xuxiaoxing.ui.main.fragment.Fragment_Three;
-import com.zmr.xuxiaoxing.ui.main.fragment.Fragment_Two;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,8 +71,8 @@ public class MainActivity extends BaseActivity {
 
         //mBottomTabView.setOnPageChangeListener(listener);
 
-        Fragment_One page1 = new Fragment_One();
-        Fragment_Two page2 = new Fragment_Two();
+        FragmentCar page1 = new FragmentCar();
+        FragmentCar page2 = new FragmentCar();
         Fragment_Three page3 = new Fragment_Three();
         Fragment_Four page4 = new Fragment_Four();
         Fragment_Five page5 = new Fragment_Five();
