@@ -17,7 +17,7 @@ import com.zmr.xuxiaoxing.ui.login.model.SendSMS;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -27,9 +27,9 @@ import butterknife.OnClick;
  */
 public class ForgotPwdActivity extends BaseActivity {
 
-    @Bind(R.id.cet_tel)
+   @BindView(R.id.cet_tel)
     ClearEditText mCetTel;
-    @Bind(R.id.btn_next_step)
+   @BindView(R.id.btn_next_step)
     Button mBtnNextStep;
 
     private String mTel;

@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.zmr.xuxiaoxing"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -42,14 +42,16 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     //andbase框架
-    compile project(':xuxiaoxing')
+    compile project(':library:xuxiaoxing')
     //Klog日志工具
     compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
+
     compile 'com.github.xx753940262:aes_rsa:1.0.1'
 
     compile 'com.tencent.bugly:crashreport:latest.release'
     //    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.5
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
 
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

@@ -1,7 +1,6 @@
 package com.zmr.xuxiaoxing.ui.splash.activity;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,8 +13,7 @@ import com.xiaoxing.common.base.BaseActivity;
 import com.zmr.xuxiaoxing.R;
 import com.zmr.xuxiaoxing.ui.login.activity.LoginActivity;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import butterknife.BindView;
 
 
 /**
@@ -31,7 +29,7 @@ import butterknife.ButterKnife;
  */
 public class AnimationActivity extends BaseActivity {
     public static final int ANIMATION_TIME = 3000;
-    @Bind(R.id.iv_animation_logo)
+    @BindView(R.id.iv_animation_logo)
     ImageView mIvAnimationLogo;
 
     @Override
@@ -105,10 +103,4 @@ public class AnimationActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import static com.xiaoxing.common.base.BaseConstant.HTTP_RESULT_OK;
@@ -38,7 +38,7 @@ import static com.xiaoxing.common.base.BaseConstant.HTTP_RESULT_OK;
  */
 public class ChangeAddressActivity extends BaseActivityList {
 
-    @Bind(R.id.btn_add_new_address)
+    @BindView(R.id.btn_add_new_address)
     Button mBtnAddNewAddress;
 
     @Override

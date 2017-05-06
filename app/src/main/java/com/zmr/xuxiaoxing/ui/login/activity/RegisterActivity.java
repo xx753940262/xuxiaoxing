@@ -19,7 +19,7 @@ import com.zmr.xuxiaoxing.ui.login.model.SendSMS;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -28,13 +28,13 @@ import butterknife.OnClick;
  * 邮箱：2235445233@qq.com
  */
 public class RegisterActivity extends BaseActivity {
-    @Bind(R.id.cet_tel)
+    @BindView(R.id.cet_tel)
     ClearEditText mCetTel;
-    @Bind(R.id.cb_agree)
+    @BindView(R.id.cb_agree)
     CheckBox mCbAgree;
-    @Bind(R.id.tv_xie_yi)
+    @BindView(R.id.tv_xie_yi)
     TextView mTvXieYi;
-    @Bind(R.id.btn_next_step)
+    @BindView(R.id.btn_next_step)
     Button mBtnNextStep;
 
     private String mTel;

@@ -13,15 +13,13 @@ import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.clear_edit_text.ClearEditText;
 import com.zmr.xuxiaoxing.R;
 import com.zmr.xuxiaoxing.ui.login.model.Login;
-import com.zmr.xuxiaoxing.ui.recycler.swipe.activity.RvMultiFuncActivity;
+import com.zmr.xuxiaoxing.ui.main.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.xiaoxing.common.base.BaseConstant.HTTP_RESULT_OK;
 
 /**
  * 描述：登录
@@ -31,15 +29,15 @@ import static com.xiaoxing.common.base.BaseConstant.HTTP_RESULT_OK;
 public class LoginActivity extends BaseActivity {
 
 
-    @Bind(R.id.ced_tel)
+    @BindView(R.id.ced_tel)
     ClearEditText mCedTel;
-    @Bind(R.id.cet_pwd)
+    @BindView(R.id.cet_pwd)
     ClearEditText mCetPwd;
-    @Bind(R.id.btn_login)
+    @BindView(R.id.btn_login)
     Button mBtnLogin;
-    @Bind(R.id.tv_forgot_pwd)
+    @BindView(R.id.tv_forgot_pwd)
     TextView mTvForgotPwd;
-    @Bind(R.id.tv_reg)
+    @BindView(R.id.tv_reg)
     TextView mTvReg;
 
 
@@ -100,12 +98,12 @@ public class LoginActivity extends BaseActivity {
 
                 if (m_login != null) {
 
-                    if (m_login.getCode().equals(HTTP_RESULT_OK)) {
+                    if (m_login.getCode().equals(BaseConstant.HTTP_RESULT_OK)) {
 
                         ToastUtil.showMessage(this, "登录成功");
                         saveLoginInfo(m_login.getData());
 //                        startActivity(MainActivity.class);
-                        startActivity(RvMultiFuncActivity.class);
+                        startActivity(MainActivity.class);
                         finish();
                     } else {
                         ToastUtil.showMessage(this, m_login.getMsg());

@@ -50,6 +50,7 @@ import android.widget.LinearLayout;
 import com.xiaoxing.common.adapter.AbFragmentPagerAdapter;
 import com.xiaoxing.common.util.AbAppUtil;
 import com.xiaoxing.common.util.AbLogUtil;
+import com.xiaoxing.common.util.ToastUtil;
 import com.xiaoxing.common.view.sample.AbViewPager;
 
 import java.util.ArrayList;
@@ -151,6 +152,8 @@ public class AbBottomTabView extends LinearLayout {
     private OnClickListener mTabClickListener = new OnClickListener() {
         public void onClick(View view) {
             AbTabItemView tabView = (AbTabItemView) view;
+
+            ToastUtil.showMessage(context,"item");
             setCurrentItem(tabView.getIndex());
         }
     };

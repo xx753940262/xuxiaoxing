@@ -22,7 +22,7 @@ import com.zmr.xuxiaoxing.ui.login.model.UpdatePwd;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -32,13 +32,13 @@ import butterknife.OnClick;
  */
 public class SetPwdActivity extends BaseActivity {
 
-    @Bind(R.id.cdt_yan_zheng_ma)
+   @BindView(R.id.cdt_yan_zheng_ma)
     ClearEditText mCdtYanZhengMa;
-    @Bind(R.id.btn_countdown)
+   @BindView(R.id.btn_countdown)
     TextView mBtnCountdown;
-    @Bind(R.id.cet_pwd)
+   @BindView(R.id.cet_pwd)
     ClearEditText mCetPwd;
-    @Bind(R.id.btn_kai_qi)
+   @BindView(R.id.btn_kai_qi)
     Button mBtnKaiQi;
 
 

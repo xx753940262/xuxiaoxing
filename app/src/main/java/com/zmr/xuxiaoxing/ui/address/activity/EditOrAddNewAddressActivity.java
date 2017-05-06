@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -35,23 +35,23 @@ import butterknife.OnClick;
  */
 public class EditOrAddNewAddressActivity extends BaseActivity {
 
-    @Bind(R.id.ce_username)
+    @BindView(R.id.ce_username)
     ClearEditText mCeUsername;
-    @Bind(R.id.ce_mobile)
+    @BindView(R.id.ce_mobile)
     ClearEditText mCeMobile;
-    @Bind(R.id.tv_di_qu)
+    @BindView(R.id.tv_di_qu)
     TextView mTvDiQu;
-    @Bind(R.id.ll_area)
+    @BindView(R.id.ll_area)
     LinearLayout mLlArea;
-    @Bind(R.id.tv_jie_dao)
+    @BindView(R.id.tv_jie_dao)
     TextView mTvJieDao;
-    @Bind(R.id.ll_jie_dao)
+    @BindView(R.id.ll_jie_dao)
     LinearLayout mLlJieDao;
-    @Bind(R.id.ce_address)
+    @BindView(R.id.ce_address)
     ClearEditText mCeAddress;
-    @Bind(R.id.checkBox)
+    @BindView(R.id.checkBox)
     CheckBox mCheckBox;
-    @Bind(R.id.btn_save)
+    @BindView(R.id.btn_save)
     Button mBtnSave;
 
 

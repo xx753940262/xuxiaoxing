@@ -8,7 +8,8 @@ import com.xiaoxing.common.base.BaseActivity;
 import com.xiaoxing.common.util.ReadAssetsRawTextUtil;
 import com.zmr.xuxiaoxing.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
+
 
 /**
  * 描述：协议
@@ -16,7 +17,7 @@ import butterknife.Bind;
  * 邮箱：2235445233@qq.com
  */
 public class XieYiActivity extends BaseActivity {
-    @Bind(R.id.tv_xie_yi)
+    @BindView(R.id.tv_xie_yi)
     TextView mTvXieYi;
 
     @Override
